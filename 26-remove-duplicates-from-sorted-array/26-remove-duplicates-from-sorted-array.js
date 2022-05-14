@@ -2,15 +2,11 @@
  * @param {number[]} nums
  * @return {number}
  */
-var removeDuplicates = function (nums) {
-  nums.forEach((num, index) => {
-    if (nums.indexOf(num) !== index) {
-      nums.splice(index, 1);
+var removeDuplicates = function(nums) {
+    for(let i=1;i<nums.length;i++){
+        if (nums[i] === nums[i-1]){
+            nums.splice(i,1)
+            i--
+        } 
     }
-  });
-  const testNums = Array.from(new Set(nums));
-  if (testNums.length !== nums.length) {
-    removeDuplicates(nums);
-  }
-  return nums.length;
 };
